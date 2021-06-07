@@ -1,0 +1,33 @@
+CREATE TABLE Country
+(
+  Country_name VARCHAR(50) NOT NULL,
+  Country_id INT NOT NULL,
+  PRIMARY KEY (Country_id)
+);
+
+CREATE TABLE Region
+(
+  Region_id INT NOT NULL,
+  Region_name VARCHAR(50) NOT NULL,
+  Country_id INT NOT NULL,
+  PRIMARY KEY (Region_id),
+  FOREIGN KEY (Country_id) REFERENCES Country(Country_id)
+);
+
+CREATE TABLE City
+(
+  City_name VARCHAR(50) NOT NULL,
+  City_id INT NOT NULL,
+  Region_id INT NOT NULL,
+  PRIMARY KEY (City_id),
+  FOREIGN KEY (Region_id) REFERENCES Region(Region_id)
+);
+
+CREATE TABLE TourBase
+(
+  TourBase_name VARCHAR(50) NOT NULL,
+  TourBase_id INT NOT NULL,
+  City_id INT NOT NULL,
+  PRIMARY KEY (TourBase_id),
+  FOREIGN KEY (City_id) REFERENCES City(City_id)
+);
