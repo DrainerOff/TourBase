@@ -1,0 +1,3 @@
+class Tourbases < ApplicationRecord
+
+end

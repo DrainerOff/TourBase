@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Турбазы</title>
+    <meta name="viewport" content="width=device-wodth,initial-scale=1">
+    <%= csrf_meta_tags %>
+    <%= csp_meta_tag %>
+
+    <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+    </head>
+
+    <body>
+        <nav>
+          <ul>
+            <li><%= link_to 'На главную', root_path %></li>
+            <li><%= link_to 'Cтраны', countries_path %></li>
+            <li><%= link_to 'Регионы', regions_path %></li>
+            <li><%= link_to 'Города', cities_path %></li>
+            <li><%= link_to 'Туры', tours_path %></li>
+          </ul>
+        </nav>
+        <main>
+            <%= yield%>
+        </main>
+    </body>
+</html>

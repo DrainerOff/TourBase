@@ -1,1 +1,6 @@
-<h3>Главная страница</h3>
+<h1>Перечень турбаз:</h1>
+
+<% @tours.each do |tour| %>
+  <h2><%= tour.tourbase_name%></h2>
+
+<% end %>

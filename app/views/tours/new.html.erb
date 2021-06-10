@@ -2,12 +2,12 @@
 
 <%= form_for :tour, url: tours_path do |f| %>
   <p>
-    Название<br>
-    <%=f.text_field :title %>
+    Название турбазы<br>
+    <%=f.text_field :tourbase_name %>
   </p>
   <p>
-    Текст статьи<br>
-    <%= f.text_area :body %>
+    id города<br>
+    <%= f.text_field :city_id %>
   </p>
 
   <p>
