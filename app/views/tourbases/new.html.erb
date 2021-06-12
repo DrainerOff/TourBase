@@ -2,20 +2,24 @@
 
 <%= form_with model: @new_tour,local: false do |f| %>
   <p>
-    <div>
+    <div class="px-2">
     <%= f.label :"Название турбазы" %>
     <%=f.text_field :tourbase_name,placeholder: "Введите название" %>
     </div>
   </p>
   <p>
     <div class = "col-md-5">
+      <div class="px-3">
     <%= f.label :"Город" %>
+      </div>
     <%=f.collection_select :city_id, City.all, :id, :city_name,{},{class: "form-select"} %>
     </div>
   </p>
 
-  <p>
+
+  <div class="px-2 my-2">
     <%= f.submit "Добавить"%>
-  </p>
+  </div>
+
 
 <% end %>
