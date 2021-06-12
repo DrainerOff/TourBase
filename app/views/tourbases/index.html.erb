@@ -1,0 +1,17 @@
+<div>
+  <a class="me-3 py-2 text-dark text-decoration-none" href="/tourbase/new">Добавить</a>
+</div>
+
+<% @tours.each do |tour| %>
+  <div class="row align-items-md-stretch">
+    <div class="col-md-6">
+      <div class="h-100 p-5 bg-light border rounded-3">
+        <h2><%= tour.tourbase_name%></h2>
+        <h2><%= tour.city.city_name%></h2>
+        <button class="btn btn-outline-secondary" type="button">Изменить</button>
+      </div>
+    </div>
+  </div>
+<% end %>
+
+

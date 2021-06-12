@@ -1,0 +1,21 @@
+<h2>Добавление нового тура</h2>
+
+<%= form_with model: @new_tour,local: false do |f| %>
+  <p>
+    <div>
+    <%= f.label :"Название турбазы" %>
+    <%=f.text_field :tourbase_name,placeholder: "Введите название" %>
+    </div>
+  </p>
+  <p>
+    <div class = "col-md-5">
+    <%= f.label :"Город" %>
+    <%=f.collection_select :city_id, City.all, :id, :city_name,{},{class: "form-select"} %>
+    </div>
+  </p>
+
+  <p>
+    <%= f.submit "Добавить"%>
+  </p>
+
+<% end %>

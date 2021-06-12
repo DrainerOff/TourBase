@@ -10,28 +10,25 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_06_09_224118) do
+ActiveRecord::Schema.define(version: 0) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
-  create_table "city", primary_key: "city_id", id: :integer, default: nil, force: :cascade do |t|
+  create_table "Cities", primary_key: "city_id", id: :integer, default: nil, force: :cascade do |t|
     t.string "city_name", null: false
     t.integer "region_id", null: false
   end
 
-
-  create_table "region", primary_key: "region_id", id: :integer, default: nil, force: :cascade do |t|
+  create_table "regions", primary_key: "region_id", id: :integer, default: nil, force: :cascade do |t|
     t.string "region_name", null: false
     t.integer "country_id", null: false
   end
 
-  create_table "tours", primary_key: "tourbase_id", id: :integer, default: nil, force: :cascade do |t|
+  create_table "tour_bases", primary_key: "tourbase_id", id: :integer, default: nil, force: :cascade do |t|
     t.string "tourbase_name", null: false
     t.integer "city_id", null: false
   end
 
-  add_foreign_key "city", "region", primary_key: "region_id", name: "city_region_id_fkey"
-  add_foreign_key "region", "tours", primary_key: "country_id", name: "region_country_id_fkey"
-  add_foreign_key "tours", "city", primary_key: "city_id", name: "tourbase_city_id_fkey"
+  add_foreign_key "Cities", "regions", primary_key: "region_id", name: "city_region_id_fkey"
 end

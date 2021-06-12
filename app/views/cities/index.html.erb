@@ -1,6 +1,14 @@
-<h1>Перечень городов:</h1>
-
-<% @cities.each do |cities| %>
-  <h2><%= cities.city_name%></h2>
-
+<% @cities.each do |city| %>
+  <div class="row align-items-md-stretch">
+    <div class="col-md-6">
+      <div class="h-100 p-5 bg-light border rounded-3">
+        <h2><%= city.city_name%></h2>
+        <button class="btn btn-outline-secondary" type="button">Изменить</button>
+      </div>
+    </div>
+  </div>
 <% end %>
+
+<div>
+  <a class="me-3 py-2 text-dark text-decoration-none" href="tours/new">Добавить</a>
+</div>

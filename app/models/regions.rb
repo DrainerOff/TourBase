@@ -1,4 +1,0 @@
-class Regions < ApplicationRecord
-
-end
-

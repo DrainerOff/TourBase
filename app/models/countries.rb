@@ -1,5 +1,0 @@
-class Countries < ApplicationRecord
-
-end
-
-
