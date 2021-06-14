@@ -1,5 +1,5 @@
 <div class="px-2 my-2">
-  <a type="button" class="btn btn-primary btn-lg px-4 gap-3" href="/tourbase/new">Добавить</a>
+  <a type="button" class="btn btn-primary btn-lg px-4 gap-3" href=<%= new_tourbasis_path %>>Добавить</a>
 </div>
 
 <% @tours.each do |tour| %>
@@ -10,9 +10,12 @@
         <div class="fs-5 text-muted">
           <h2><%= tour.city.region.region_name %> , <%= tour.city.city_name %></h2>
         </div>
-        <button class="btn btn-outline-secondary" type="button">Изменить</button>
+
+        <a type="button" class="btn btn-outline-secondary" href=<%= edit_tourbasis_path(tour) %>>Изменить</a>
+        <%= link_to 'Удалить', tourbasis_path(tour), class: "btn btn-outline-secondary", data: {method: :delete} %>
       </div>
     </div>
+  </div>
   </div>
 <% end %>
 

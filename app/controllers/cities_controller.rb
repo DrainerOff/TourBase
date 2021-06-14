@@ -5,12 +5,36 @@ class CitiesController < ApplicationController
   end
 
   def new
-    @new_city = City.new()
+    @city = City.new()
   end
 
   def create
-    @new_city = City.new(city_params)
-    @new_city.save
+    @city = City.new(city_params)
+
+    if @city.save
+      redirect_to action: :index
+    else
+      redirect_to new_city_path
+    end
+
+  end
+
+  def edit
+    @city = City.find params[:id]
+  end
+
+  def update
+    @city = City.find params[:id]
+    if @city.update(city_params)
+      redirect_to cities_path
+    else
+      redirect_to edit_city_path
+    end
+  end
+
+  def destroy
+    @city = City.find params[:id]
+    @city.destroy
     redirect_to action: :index
 
   end

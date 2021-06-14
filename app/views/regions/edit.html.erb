@@ -1,0 +1,14 @@
+<%= form_with model: @region, local: false do |f| %>
+  <p>
+  <div>
+    <%= f.label :"Название страны" %>
+    <%= f.text_field :region_name, placeholder: "Введите название" %>
+  </div>
+  </p>
+
+
+  <div class="px-2 my-2">
+    <%= f.submit "Изменить" %>
+  </div>
+
+<% end %>

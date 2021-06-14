@@ -1,5 +1,5 @@
 <div class="px-2 my-2">
-  <a type="button" class="btn btn-primary btn-lg px-4 gap-3"  href="/country/new">Добавить</a>
+  <a type="button" class="btn btn-primary btn-lg px-4 gap-3" href=<%= new_country_path %>>Добавить</a>
 </div>
 
 <% @countries.each do |country| %>
@@ -7,7 +7,8 @@
     <div class="col-md-6">
       <div class="h-100 p-5 bg-light border rounded-3">
         <h2><%= country.country_name%></h2>
-        <button class="btn btn-outline-secondary" type="button">Изменить</button>
+        <a type="button" class="btn btn-outline-secondary" href=<%= edit_country_path(country) %>>Изменить</a>
+        <%= link_to 'Удалить', country_path(country), method: :delete, :class => "btn btn-outline-secondary" %>
       </div>
     </div>
   </div>

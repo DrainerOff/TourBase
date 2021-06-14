@@ -10,14 +10,18 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 0) do
+ActiveRecord::Schema.define(version: 2021_06_14_124416) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
-  create_table "Cities", primary_key: "city_id", id: :integer, default: nil, force: :cascade do |t|
+  create_table "cities", primary_key: "city_id", id: :integer, default: nil, force: :cascade do |t|
     t.string "city_name", null: false
     t.integer "region_id", null: false
+  end
+
+  create_table "countries", primary_key: "country_id", id: :integer, default: nil, force: :cascade do |t|
+    t.string "country_name", null: false
   end
 
   create_table "regions", primary_key: "region_id", id: :integer, default: nil, force: :cascade do |t|
@@ -25,10 +29,10 @@ ActiveRecord::Schema.define(version: 0) do
     t.integer "country_id", null: false
   end
 
-  create_table "tour_bases", primary_key: "tourbase_id", id: :integer, default: nil, force: :cascade do |t|
-    t.string "tourbase_name", null: false
-    t.integer "city_id", null: false
+  create_table "tourbases", force: :cascade do |t|
+    t.string "name"
   end
 
-  add_foreign_key "Cities", "regions", primary_key: "region_id", name: "city_region_id_fkey"
+  add_foreign_key "cities", "regions", primary_key: "region_id", name: "cities_region_id_fkey"
+  add_foreign_key "regions", "countries", primary_key: "country_id", name: "regions_country_id_fkey"
 end
