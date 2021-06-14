@@ -1,14 +1,17 @@
+<div class="px-2 my-2">
+  <a type="button" class="btn btn-primary btn-lg px-4 gap-3"  href="/city/new">Добавить</a>
+</div>
+
 <% @cities.each do |city| %>
   <div class="row align-items-md-stretch">
     <div class="col-md-6">
       <div class="h-100 p-5 bg-light border rounded-3">
         <h2><%= city.city_name%></h2>
+        <div class="fs-5 text-muted">
+          <h2><%= city.region.region_name%></h2>
+        </div>
         <button class="btn btn-outline-secondary" type="button">Изменить</button>
       </div>
     </div>
   </div>
 <% end %>
-
-<div>
-  <a class="me-3 py-2 text-dark text-decoration-none" href="tours/new">Добавить</a>
-</div>

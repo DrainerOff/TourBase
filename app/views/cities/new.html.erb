@@ -1,0 +1,23 @@
+<%= form_with model: @new_city,local: false do |f| %>
+  <p>
+    <div class="px-2">
+    <%= f.label :"Название города" %>
+    <%=f.text_field :city_name,placeholder: "Введите название" %>
+    </div>
+  </p>
+  <p>
+    <div class = "col-md-5">
+      <div class="px-3">
+    <%= f.label :"Регион" %>
+      </div>
+    <%=f.collection_select :region_id, Region.all, :id, :region_name,{},{class: "form-select"} %>
+    </div>
+  </p>
+
+
+  <div class="px-2 my-2">
+    <%= f.submit "Добавить"%>
+  </div>
+
+
+<% end %>
