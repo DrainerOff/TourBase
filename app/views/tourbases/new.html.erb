@@ -1,4 +1,11 @@
 <%= form_with model: @tour, local: false do |f| %>
+  <% if @tour.present? %>
+    <% @tour.errors.each do |msg| %>
+      <div class="alert alert-danger" role="alert">
+        <%=msg %>
+      </div>
+    <% end %>
+  <% end %>
   <p>
   <div class="px-2">
     <%= f.label :"Название турбазы" %>
