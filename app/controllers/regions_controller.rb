@@ -16,11 +16,14 @@ class RegionsController < ApplicationController
   def destroy
     @region = Region.find params[:id]
 
-    if @region.destroy
-      redirect_to regions_path
-    else
-      redirect_to :index
+    if noCities
+      @region.destroy
+      redirect_to action: :index
     end
+  end
+
+  def noCities
+    return !City.find_by_region_id(@region.region_id).present?
   end
 
 

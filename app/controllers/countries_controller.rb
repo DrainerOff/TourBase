@@ -34,10 +34,15 @@ class CountriesController < ApplicationController
 
   def destroy
     @country = Country.find params[:id]
-    @country.destroy
-    redirect_to countries_path
+    if noRegions
+      @country.destroy
+      redirect_to countries_path
+    end
   end
 
+  def noRegions
+    return !Region.find_by_country_id(@country.country_id).present?
+  end
 
   private def country_params
     params.require(:country).permit(:country_name)

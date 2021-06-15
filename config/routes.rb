@@ -7,6 +7,4 @@ Rails.application.routes.draw do
   resources :countries, only: %i[index new edit create update destroy]
   resources :regions, only: %i[index new edit create update destroy]
   resources :cities, only: %i[index new edit create update destroy]
-
-
 end

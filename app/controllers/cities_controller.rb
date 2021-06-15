@@ -34,11 +34,15 @@ class CitiesController < ApplicationController
 
   def destroy
     @city = City.find params[:id]
-    @city.destroy
-    redirect_to action: :index
-
+    if !noTourbases
+      @city.destroy
+      redirect_to action: :index
+    end
   end
 
+  def noTourbases
+    return Tourbase.find_by_city_id(@city.city_id).present?
+  end
 
   private def city_params
     params.require(:city).permit(:city_name, :region_id)
